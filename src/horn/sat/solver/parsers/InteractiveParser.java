@@ -20,13 +20,13 @@ public class InteractiveParser extends LinearParser {
     public HornFormula parse() throws InvalidFormulaException {
         final Set<HornClause> clauses = new LinkedHashSet<>();
 
-        System.out.println("Enter each clause making up your horn formula line by line!");
-        System.out.println("Press '<STRG> + D' to stop entering new clauses");
+        System.out.println("Enter each clause in a separate line!");
+        System.out.println("Press '<CTRL> + D' to stop entering new clauses");
 
         try(final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
 
             while (true) {
-                System.out.printf("Current formula: %s", stringifiedFormulaState(clauses));
+                System.out.printf("Current formula: (%s)%n", stringifiedFormulaState(clauses));
                 System.out.print("> ");
 
                 final String line = reader.readLine();
@@ -37,7 +37,7 @@ public class InteractiveParser extends LinearParser {
 
                 clauses.add(parseHornClause(line.trim()));
             }
-            System.out.printf("Formula whose satisfiability will be determined: %s", stringifiedFormulaState(clauses));
+            System.out.printf("Formula whose satisfiability will be determined: %s%n", stringifiedFormulaState(clauses));
         } catch (InvalidFormulaException e) {
             System.err.printf("Given formula is not a valid horn formula: %s", e.getMessage());
             System.exit(1);
