@@ -31,6 +31,11 @@ public class FileParser extends LinearParser {
             String line;
 
             while ((line = reader.readLine()) != null) {
+
+                if (line.stripLeading().startsWith("#")) { // Allow comments of the form '# ... ' in an input file
+                    continue;
+                }
+
                 clauses.add(parseHornClause(line));
             }
         } catch (InvalidFormulaException e) {
