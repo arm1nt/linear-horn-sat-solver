@@ -63,6 +63,7 @@ public class Main {
             return Path.of(stringPath);
         } catch (InvalidPathException e) {
             System.err.printf("Path '%s' is not a valid path: %s%n", stringPath, e.getMessage());
+            System.exit(1);
         }
         throw new RuntimeException(); // unreachable
     }

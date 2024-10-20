@@ -34,5 +34,5 @@ The SAT solver's output is:
 
 ``````
 Verdict: SAT
-e.g. (c: false, b: false, a: false, b: false, c: false, a: false, d: false, ⊥: false, d: false, ⊤: true)
+e.g. (a: false, b: false, c: false, d: false, ⊥: false, ⊤: true)
 ``````
